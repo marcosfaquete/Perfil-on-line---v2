@@ -5,6 +5,9 @@ import { VisitorTracker } from "@/VisitorTracker";
 import VisitorCounterDisplay from "@/components/VisitorCounterDisplay";
 import SmoothScrolling from "@/components/SmoothScrolling";
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 const parkinsans = Parkinsans({
   variable: "--font-parkinsans",
   subsets: ["latin"],
