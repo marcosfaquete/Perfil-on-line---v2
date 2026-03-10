@@ -78,7 +78,7 @@ export default function Home() {
             variants={imageVariants}
           >
             <Image
-              src="/imagens/imgProfile.png"
+              src="/imagens/imgProfile.jpg"
               alt="Imagem de Perfil"
               width={300}
               height={300}
