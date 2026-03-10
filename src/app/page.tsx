@@ -95,7 +95,7 @@ export default function Home() {
             variants={containerVariants}
           >
             <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl text-[#86af13] mb-3 font-semibold transition-all duration-300 hover:[text-shadow:0_10px_20px_#2e2cc2]">
-              Olá, eu sou o Marcos, Desenvolvedor Front-End.
+              Olá, eu sou o Marcos, Técnico em Informática e Desenvolvedor Web.
             </motion.h1>
             <motion.h2 variants={itemVariants} className="text-lg md:text-xl lg:text-2xl text-[rgba(189,192,187,0.856)] mb-6 transition-all duration-300 hover:[text-shadow:0_10px_20px_#2e2cc2]">
               Crio e codifico coisas simples e bonitas, e amo o que faço.
@@ -115,8 +115,7 @@ export default function Home() {
         <section id={isMounted ? "sobre" : undefined} className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-20 bg-[#0a0a0a]">
           <h2 className="text-4xl font-bold text-[#86af13] mb-8">Sobre Mim</h2>
           <p className="max-w-2xl text-center text-gray-300 text-lg leading-relaxed">
-            Aqui você pode contar um pouco mais sobre sua jornada. Como é um site de página única, 
-            essa seção serve para apresentar suas habilidades e paixões sem que o usuário precise sair da tela.
+            About me in progress
           </p>
         </section>
 
@@ -127,19 +126,19 @@ export default function Home() {
             {/* Exemplo de Card de Projeto */}
             <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
               <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Nome do Projeto</h3>
-              <p className="text-gray-400 text-sm">Uma breve descrição do projeto incrível que você desenvolveu.</p>
+              <h3 className="text-xl font-bold mb-2">Projeto 1</h3>
+              <p className="text-gray-400 text-sm">Em Construção...</p>
             </div>
             {/* Adicione mais cards aqui */}
             <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
               <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Nome do Projeto</h3>
-              <p className="text-gray-400 text-sm">Uma breve descrição do projeto incrível que você desenvolveu.</p>
+              <h3 className="text-xl font-bold mb-2">Projeto 2</h3>
+              <p className="text-gray-400 text-sm">Em Construção...</p>
             </div>
             <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
               <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Outro Projeto</h3>
-              <p className="text-gray-400 text-sm">Tecnologias usadas: React, Next.js, Tailwind.</p>
+              <h3 className="text-xl font-bold mb-2">Projeto 3</h3>
+              <p className="text-gray-400 text-sm">Em Construção...</p>
             </div>
           </div>
         </section>
