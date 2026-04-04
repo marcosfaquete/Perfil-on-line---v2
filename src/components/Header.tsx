@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { BookOpen, Home, LogOut, UserRound } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 interface HeaderUser {
@@ -46,59 +47,64 @@ export default function Header() {
     user?.nick || user?.name || (user?.email ? user.email.split('@')[0] : '');
 
   return (
-    <header className="fixed top-0 w-full bg-[rgba(34,21,145,0.856)] backdrop-blur-sm shadow-[0_1px_1px_rgb(20,67,223)] z-10">
-      <nav className="px-4 py-4">
-        <div className="flex items-center justify-between gap-4">
-          <ul className="flex items-center gap-6 md:gap-10 lg:gap-16">
+    <header className="fixed top-0 z-[60] w-full border-b border-white/10 bg-black/50 shadow-[0_8px_32px_rgba(0,0,0,0.65)] backdrop-blur-md">
+      <nav className="px-4 py-4 md:px-8 md:py-5">
+        <div className="flex items-center justify-between gap-3">
+          <ul className="flex flex-wrap items-center gap-4 md:gap-8 lg:gap-12">
             <li>
               <Link
                 href="/"
-                className="text-xl font-semibold transition-all duration-300 text-transparent [text-shadow:0_0_1px_#bad80d] hover:text-white hover:[text-shadow:0_0_5px_#bad80d]"
+                className="flex items-center gap-2 text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:text-[#10b981] hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] md:text-base"
               >
+                <Home className="h-4 w-4 text-[#10b981] md:h-5 md:w-5" aria-hidden />
                 Ínicio
               </Link>
             </li>
             <li>
               <Link
                 href="/about"
-                className="text-xl font-semibold transition-all duration-300 text-transparent [text-shadow:0_0_1px_#bad80d] hover:text-white hover:[text-shadow:0_0_5px_#bad80d]"
+                className="flex items-center gap-2 text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:text-[#10b981] hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] md:text-base"
               >
+                <UserRound className="h-4 w-4 text-[#10b981] md:h-5 md:w-5" aria-hidden />
                 About
               </Link>
             </li>
             <li>
               <Link
                 href="/blog"
-                className="text-xl font-semibold transition-all duration-300 text-transparent [text-shadow:0_0_1px_#bad80d] hover:text-white hover:[text-shadow:0_0_5px_#bad80d]"
+                className="flex items-center gap-2 text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:text-[#10b981] hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] md:text-base"
               >
+                <BookOpen className="h-4 w-4 text-[#10b981] md:h-5 md:w-5" aria-hidden />
                 Blog
               </Link>
             </li>
           </ul>
 
           {user ? (
-            <div className="flex items-center gap-3 text-sm text-white">
-              <div className="text-right">
-                <p className="font-semibold text-[#bad80d]">
+            <div className="flex items-center gap-2 text-sm text-white md:gap-3">
+              <div className="max-w-[140px] rounded-xl border border-white/10 bg-white/5 px-2 py-2 text-right backdrop-blur-md sm:max-w-[200px] md:max-w-none md:px-3">
+                <p className="truncate text-xs font-bold text-[#10b981] md:text-sm">
                   {displayName || 'Usuário'}
                 </p>
-                <p className="text-xs text-gray-200 truncate max-w-[180px]">
+                <p className="truncate text-[10px] text-white/50 md:text-xs">
                   {user.email}
                 </p>
               </div>
               <button
+                type="button"
                 onClick={handleLogout}
-                className="px-3 py-1.5 text-xs font-semibold bg-red-600 rounded-md shadow-[0_2px_4px_rgba(0,0,0,0.4)] hover:bg-red-700 transition-all"
+                className="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[10px] font-bold text-white/80 transition-all duration-300 hover:scale-105 hover:border-red-500/40 hover:text-red-400 md:px-3 md:text-xs"
               >
-                Logout
+                <LogOut className="h-3.5 w-3.5" aria-hidden />
+                <span className="hidden sm:inline">Logout</span>
               </button>
             </div>
           ) : (
-            <ul className="flex items-center gap-4">
+            <ul className="flex items-center gap-2 md:gap-3">
               <li>
                 <Link
                   href="/login"
-                  className="text-sm md:text-base font-semibold transition-all duration-300 text-transparent [text-shadow:0_0_1px_#bad80d] hover:text-white hover:[text-shadow:0_0_5px_#bad80d]"
+                  className="rounded-lg px-2 py-1.5 text-xs font-bold text-white transition-all duration-300 hover:scale-105 hover:text-[#10b981] hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.45)] md:px-3 md:text-sm"
                 >
                   Login
                 </Link>
@@ -106,7 +112,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/register"
-                  className="text-sm md:text-base font-semibold transition-all duration-300 text-transparent [text-shadow:0_0_1px_#bad80d] hover:text-white hover:[text-shadow:0_0_5px_#bad80d]"
+                  className="inline-block rounded-lg border border-[#10b981]/50 bg-transparent px-3 py-1.5 text-xs font-bold text-[#10b981] transition-all duration-300 hover:scale-105 hover:bg-[#10b981]/10 hover:shadow-[0_0_24px_rgba(16,185,129,0.35)] md:px-4 md:py-2 md:text-sm"
                 >
                   Cadastrar
                 </Link>

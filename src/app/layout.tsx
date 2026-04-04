@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Parkinsans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { VisitorTracker } from "@/VisitorTracker";
 import VisitorCounterDisplay from "@/components/VisitorCounterDisplay";
-import SmoothScrolling from "@/components/SmoothScrolling";
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
-
-const parkinsans = Parkinsans({
-  variable: "--font-parkinsans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: "Marcos Faquete - Desenvolvedor Front-End",
@@ -25,11 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html
+      lang="pt-BR"
+      className={`${GeistSans.variable} h-full snap-y snap-mandatory overflow-y-scroll scroll-smooth`}
+    >
       <body
-        className={`${parkinsans.variable} antialiased`}
+        className={`${GeistSans.className} min-h-full bg-black text-white antialiased`}
       >
-        <SmoothScrolling />
         <VisitorTracker />
         <VisitorCounterDisplay />
         {children}

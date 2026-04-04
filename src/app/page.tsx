@@ -1,161 +1,21 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { HeroSaaS } from '@/components/portfolio/HeroSaaS';
+import { BentoAuthority } from '@/components/portfolio/BentoAuthority';
+import { ProjectsFeed } from '@/components/portfolio/ProjectsFeed';
+import { getSiteVisitCount } from '@/lib/site-visits';
 
-export default function Home() {
-  // Estado para controlar se o componente já foi montado
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Configuração das animações
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 1.0, // Tempo entre cada item de texto aparecendo
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 250, filter: 'blur(10px)' }, // Começa invisível, descido e desfocado
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      filter: 'blur(0px)', // Fica nítido e sobe
-      transition: { duration: 0.8, ease: "easeOut" } 
-    },
-  };
-
-  const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.5, rotate: -50 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      rotate: 0,
-      transition: { 
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-        duration: 500, 
-        delay: 1.0,
-      } 
-    },
-  };
-
-  useEffect(() => {
-    // Desabilita a restauração automática de scroll do navegador
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    // Força a rolagem para o topo (coordenadas 0, 0) assim que o componente é montado.
-    window.scrollTo(0, 0);
-
-    // Habilita os IDs das seções após o carregamento inicial.
-    // Isso impede que o navegador pule para #projetos antes do React assumir.
-    setIsMounted(true);
-  }, []);
+export default async function Home() {
+  const visitCount = await getSiteVisitCount();
 
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-black text-white">
       <Header />
-      
-      <main className="flex-1">
-        {/* Seção INÍCIO (Hero) */}
-        {/* O ID só é atribuído se isMounted for true */}
-        <section id={isMounted ? "inicio" : undefined} className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 px-4 md:px-8 py-24 md:py-36 text-left">
-          {/* Imagem de Perfil */}
-          <motion.div 
-            className="flex-shrink-0"
-            initial="hidden"
-            animate="visible"
-            variants={imageVariants}
-          >
-            <Image
-              src="/imagens/imgProfile.jpg"
-              alt="Imagem de Perfil"
-              width={300}
-              height={300}
-              className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.2)] object-cover"
-              priority
-            />
-          </motion.div>
 
-          {/* Texto */}
-          <motion.div 
-            className="text max-w-[500px]"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl text-[#86af13] mb-3 font-semibold transition-all duration-300 hover:[text-shadow:0_10px_20px_#2e2cc2]">
-              Olá, eu sou o Marcos, Técnico em Informática e Desenvolvedor Web.
-            </motion.h1>
-            <motion.h2 variants={itemVariants} className="text-lg md:text-xl lg:text-2xl text-[rgba(189,192,187,0.856)] mb-6 transition-all duration-300 hover:[text-shadow:0_10px_20px_#2e2cc2]">
-              Crio e codifico coisas simples e bonitas, e amo o que faço.
-            </motion.h2>
-            <motion.div variants={itemVariants}>
-              <Link
-                href="#projetos" // Isso agora vai deslizar suavemente para a seção abaixo
-                className="inline-block px-6 py-4 bg-[#007bff] text-white font-bold rounded-[25px] shadow-[0_4px_6px_rgba(3,3,3,0.733)] transition-all duration-300 hover:bg-[#2e2cc2] hover:scale-105 hover:shadow-[0_4px_6px_rgba(38,17,226,0.856)]"
-              >
-                My Projects
-              </Link>
-            </motion.div>
-          </motion.div>
-        </section>
-
-        {/* Seção SOBRE */}
-        <section id={isMounted ? "sobre" : undefined} className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-20 bg-[#0a0a0a]">
-          <h2 className="text-4xl font-bold text-[#86af13] mb-8">Sobre Mim</h2>
-          <p className="max-w-2xl text-center text-gray-300 text-lg leading-relaxed">
-            About me in progress
-          </p>
-        </section>
-
-        {/* Seção PROJETOS */}
-        <section id={isMounted ? "projetos" : undefined} className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-20">
-          <h2 className="text-4xl font-bold text-[#86af13] mb-12">Meus Projetos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-            {/* Exemplo de Card de Projeto */}
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
-              <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Projeto 1</h3>
-              <p className="text-gray-400 text-sm">Em Construção...</p>
-            </div>
-            {/* Adicione mais cards aqui */}
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
-              <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Projeto 2</h3>
-              <p className="text-gray-400 text-sm">Em Construção...</p>
-            </div>
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/10 hover:border-[#007bff] transition-all hover:-translate-y-2">
-              <div className="h-40 bg-gray-800 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold mb-2">Projeto 3</h3>
-              <p className="text-gray-400 text-sm">Em Construção...</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Seção CONTATO */}
-        <section id={isMounted ? "contato" : undefined} className="min-h-[50vh] flex flex-col items-center justify-center px-4 md:px-8 py-20 bg-[#0a0a0a]">
-          <h2 className="text-4xl font-bold text-[#86af13] mb-8">Vamos Conversar?</h2>
-          <p className="text-gray-300 mb-8 text-center">
-            Estou sempre aberto a novas oportunidades e projetos interessantes.
-          </p>
-          <a 
-            href="mailto:seuemail@exemplo.com" 
-            className="px-8 py-4 bg-[#007bff] text-white font-bold rounded-full hover:bg-[#2e2cc2] transition-colors"
-          >
-            Entrar em Contato
-          </a>
-        </section>
+      <main className="home-snap flex flex-1 flex-col">
+        <HeroSaaS />
+        <BentoAuthority visitCount={visitCount} />
+        <ProjectsFeed />
       </main>
 
       <Footer />

@@ -1,22 +1,18 @@
-import { supabase } from '@/lib/supabase'
+import { getSiteVisitCount } from '@/lib/site-visits'
 
-// Força o componente a não fazer cache, para mostrar o número atualizado sempre que a página carregar
 export const revalidate = 0
 
-// Este é um Server Component, ele busca os dados no servidor antes de enviar o HTML
 export default async function VisitorCounterDisplay() {
-  // Busca apenas a contagem total (count: 'exact') sem trazer os dados pesados (head: true)
-  const { count } = await supabase
-    .from('visitor_logs')
-    .select('*', { count: 'exact', head: true })
+  const count = await getSiteVisitCount()
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-black/80 px-4 py-2 text-xs font-medium text-white backdrop-blur-md border border-white/10 shadow-lg">
+    <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white shadow-[0_0_32px_rgba(0,0,0,0.6)] backdrop-blur-md transition-transform duration-300 hover:scale-105 md:px-4">
       <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10b981] opacity-60" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#10b981]" />
       </span>
-      {count || 0} Visualizações
+      <span className="font-mono text-[#10b981] tabular-nums">{count}</span>
+      <span className="hidden text-white/50 sm:inline">Visualizações</span>
     </div>
   )
 }
