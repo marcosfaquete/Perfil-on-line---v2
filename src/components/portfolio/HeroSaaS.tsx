@@ -19,7 +19,7 @@ export function HeroSaaS() {
         </div>
 
         <div className="mt-6 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/60 backdrop-blur-md md:justify-start">
-          <span>📍 Baseado em Araras - SP</span>
+          <span>📍 Araras - SP</span>
         </div>
 
         <div className="relative mt-10 md:mt-12">
