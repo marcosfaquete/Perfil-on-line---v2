@@ -91,7 +91,7 @@ export function BentoAuthority({ visitCount }: Props) {
           </div>
 
           {/* Card 4 — stack */}
-          <div className="group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-transform duration-300 hover:scale-[1.02] md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8">
+          <div className="group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8">
             <div
               className="pointer-events-none absolute inset-0 rounded-2xl bg-[#10b981] opacity-0 blur-3xl transition-opacity duration-300 group-hover/stack:opacity-20"
               aria-hidden
