@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Activity, GraduationCap, Timer } from 'lucide-react'
+import { Activity, Code, GraduationCap, Rocket, Timer } from 'lucide-react'
 import { SocialLinksMini } from '@/components/portfolio/SocialLinksMini'
 import { TechStackMini } from '@/components/portfolio/TechStackMini'
 
@@ -80,19 +80,55 @@ export function BentoAuthority({ visitCount }: Props) {
               aria-hidden
             />
             <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-between gap-8">
-              <div className="flex min-h-0 flex-1 flex-col justify-between">
-                <GraduationCap
-                  className="h-8 w-8 text-[#10b981]"
-                  strokeWidth={1.75}
-                  aria-hidden
-                />
-                <div>
-                  <p className="font-sans text-lg font-bold text-white md:text-xl">
-                    Cursando ADS na Uninter
+              <div className="flex min-h-0 flex-1 flex-col justify-start">
+                <div className="flex flex-col items-center text-center">
+                  <GraduationCap
+                    className="mx-auto h-8 w-8 shrink-0 text-[#10b981]"
+                    strokeWidth={1.75}
+                    aria-hidden
+                  />
+                  <p className="mt-3 font-sans text-lg font-black text-white md:text-xl">
+                    Formação & Especialização
                   </p>
-                  <p className="mt-2 text-sm text-white/50">
-                    Análise e Desenvolvimento de Sistemas — base acadêmica alinhada à prática.
+                  <p className="mt-2 font-sans font-bold text-lg text-white">
+                    Técnico em Informática (Senac)
                   </p>
+                  <p className="mt-1 text-sm text-zinc-400">
+                    Base sólida em infraestrutura unida à evolução contínua em
+                    software.
+                  </p>
+                  <div className="mt-4 flex flex-wrap justify-center gap-3">
+                    <a
+                      href="https://app.rocketseat.com.br/me/marcosfaquete"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50"
+                    >
+                      <Rocket
+                        className="h-3.5 w-3.5 shrink-0 transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                      <span className="transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">
+                        Rocketseat
+                      </span>
+                    </a>
+                    <a
+                      href="https://cursos.alura.com.br/user/MarcosFaquete"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50"
+                    >
+                      <Code
+                        className="h-3.5 w-3.5 shrink-0 transition-[color,filter] duration-300 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                      <span className="transition-[color,filter] duration-300 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]">
+                        Alura
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex min-h-0 flex-1 flex-col justify-between">
