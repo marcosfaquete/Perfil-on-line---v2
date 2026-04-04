@@ -61,7 +61,7 @@ export function BentoAuthority({ visitCount }: Props) {
                 </div>
                 <div>
                   <p className="font-sans text-6xl font-black tabular-nums tracking-tight text-[#10b981] md:text-7xl lg:text-8xl">
-                    34
+                    17
                   </p>
                   <p className="mt-2 font-sans text-lg font-bold text-white md:text-xl">
                     Anos de Experiência
