@@ -39,7 +39,7 @@ const LINKS = [
   },
   {
     key: 'email',
-    label: 'Email',
+    label: 'E-mail',
     Icon: SiGmail,
     href: mailtoHref,
     delayClass: 'motion-safe:delay-300',

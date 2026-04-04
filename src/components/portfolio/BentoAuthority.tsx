@@ -142,13 +142,14 @@ export function BentoAuthority({ visitCount }: Props) {
               className={`${cardEmeraldWash} group-hover/social:opacity-20`}
               aria-hidden
             />
-            <div className="relative z-10 md:max-w-md">
+            <div className="relative z-10 md:max-w-xl lg:max-w-2xl">
               <p className="font-sans text-lg font-black text-white md:text-xl">
-                Onde me encontrar
+                Conectar
               </p>
-              <p className="mt-1 text-sm text-white/50">
-                Projetos no GitHub, trajetória no LinkedIn e contato por
-                e-mail.
+              <p className="mt-2 text-sm leading-relaxed text-white/50">
+                Aberto a projetos, freelas e parcerias em produto digital. Se
+                quiser falar de código, carreira ou uma ideia em mente — chama
+                no GitHub, LinkedIn ou por e-mail.
               </p>
             </div>
             <div className="relative z-10 w-full md:w-auto">
