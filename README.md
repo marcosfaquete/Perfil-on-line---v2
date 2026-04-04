@@ -26,4 +26,4 @@ O projeto foi construído com uma stack moderna focada em escalabilidade e perfo
 - **Foco em Conversão:** Call-to-Actions (CTAs) estratégicos integrados diretamente ao WhatsApp.
 
 ---
-
+*Desenvolvido por Marcos Faquete.*
