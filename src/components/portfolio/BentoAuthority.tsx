@@ -19,7 +19,7 @@ export function BentoAuthority({ visitCount }: Props) {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-3 md:gap-5">
           {/* Card 1 — destaque experiência + foto */}
-          <div className="group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-transform duration-300 hover:scale-[1.02] md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8">
+          <div className="group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8">
             <div className="flex items-start justify-between gap-4">
               <div className="relative shrink-0">
                 <div
@@ -57,7 +57,7 @@ export function BentoAuthority({ visitCount }: Props) {
           </div>
 
           {/* Card 2 — acadêmico */}
-          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-transform duration-300 hover:scale-[1.02] md:col-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7">
+          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7">
             <GraduationCap
               className="h-8 w-8 text-[#10b981]"
               strokeWidth={1.75}
@@ -74,7 +74,7 @@ export function BentoAuthority({ visitCount }: Props) {
           </div>
 
           {/* Card 3 — visitas */}
-          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-transform duration-300 hover:scale-[1.02] md:col-span-2 md:row-start-2 md:col-start-3 md:min-h-0 md:p-7">
+          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-start-2 md:col-start-3 md:min-h-0 md:p-7">
             <Activity
               className="h-8 w-8 text-[#10b981]"
               strokeWidth={1.75}
