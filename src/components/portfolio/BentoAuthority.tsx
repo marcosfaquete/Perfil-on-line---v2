@@ -99,21 +99,6 @@ export function BentoAuthority({ visitCount }: Props) {
                   </p>
                   <div className="mt-4 flex flex-wrap justify-center gap-3">
                     <a
-                      href="https://app.rocketseat.com.br/me/marcosfaquete"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50"
-                    >
-                      <Rocket
-                        className="h-3.5 w-3.5 shrink-0 transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
-                        strokeWidth={2}
-                        aria-hidden
-                      />
-                      <span className="transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">
-                        Rocketseat
-                      </span>
-                    </a>
-                    <a
                       href="https://cursos.alura.com.br/user/MarcosFaquete"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -126,6 +111,21 @@ export function BentoAuthority({ visitCount }: Props) {
                       />
                       <span className="transition-[color,filter] duration-300 group-hover:text-blue-400 group-hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]">
                         Alura
+                      </span>
+                    </a>
+                    <a
+                      href="https://app.rocketseat.com.br/me/marcosfaquete"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/50"
+                    >
+                      <Rocket
+                        className="h-3.5 w-3.5 shrink-0 transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]"
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                      <span className="transition-[color,filter] duration-300 group-hover:text-purple-400 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">
+                        Rocketseat
                       </span>
                     </a>
                   </div>

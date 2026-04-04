@@ -1,11 +1,7 @@
 import Link from 'next/link';
+import { getPortfolioWhatsAppHref } from '@/lib/whatsapp';
 
-const WHATSAPP_PHONE =
-  process.env.NEXT_PUBLIC_WHATSAPP_PHONE?.replace(/\D/g, '') ?? '5511999999999';
-
-const whatsappHref = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
-  'Olá! Vim pelo seu portfólio e gostaria de conversar.'
-)}`;
+const whatsappHref = getPortfolioWhatsAppHref();
 
 export default function Header() {
   return (

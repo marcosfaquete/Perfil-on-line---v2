@@ -1,7 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { TypewriterRoles } from '@/components/portfolio/TypewriterRoles'
+import { getPortfolioWhatsAppHref } from '@/lib/whatsapp'
+
+const whatsappHref = getPortfolioWhatsAppHref()
 
 export function HeroSaaS() {
   return (
@@ -27,12 +29,14 @@ export function HeroSaaS() {
             className="absolute -inset-1 rounded-2xl bg-[#10b981]/25 blur-md motion-safe:animate-pulse"
             aria-hidden
           />
-          <Link
-            href="mailto:seuemail@exemplo.com?subject=Solicita%C3%A7%C3%A3o%20de%20or%C3%A7amento"
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative inline-flex scale-100 rounded-xl border border-[#10b981]/60 bg-[#10b981] px-8 py-4 text-base font-bold text-black shadow-[0_0_32px_rgba(16,185,129,0.45)] transition-all duration-300 hover:scale-105 hover:border-[#10b981] hover:bg-[#34d399] hover:shadow-[0_0_48px_rgba(16,185,129,0.65)] active:scale-[1.02]"
           >
             Solicitar Orçamento
-          </Link>
+          </a>
         </div>
       </div>
     </section>
