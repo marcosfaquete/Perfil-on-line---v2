@@ -6,6 +6,12 @@ type Props = {
   visitCount: number
 }
 
+const cardHoverGlow =
+  'transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500 hover:shadow-[0_0_20px_10px_rgba(16,185,129,0.15)]'
+
+const cardEmeraldWash =
+  'pointer-events-none absolute inset-0 rounded-2xl bg-[#10b981] opacity-0 blur-3xl transition-opacity duration-300'
+
 export function BentoAuthority({ visitCount }: Props) {
   return (
     <section
@@ -19,14 +25,21 @@ export function BentoAuthority({ visitCount }: Props) {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-3 md:gap-5">
           {/* Card 1 — destaque experiência + foto */}
-          <div className="group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8">
+          <div
+            className={`group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8`}
+          >
+            <div
+              className={`${cardEmeraldWash} group-hover:opacity-20`}
+              aria-hidden
+            />
+            <div className="relative z-10 flex flex-1 flex-col justify-between gap-6">
             <div className="flex items-start justify-between gap-4">
               <div className="relative shrink-0">
                 <div
-                  className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-amber-300 via-rose-500 to-violet-600 opacity-30 blur-xl transition-all duration-500 motion-safe:animate-pulse group-hover:opacity-50 group-hover:blur-2xl group-hover:scale-125"
+                  className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-400 via-teal-400 to-emerald-600 opacity-35 blur-xl transition-all duration-500 motion-safe:animate-pulse group-hover:opacity-55 group-hover:blur-2xl group-hover:scale-125"
                   aria-hidden
                 />
-                <div className="relative rounded-full bg-gradient-to-tr from-amber-300 via-rose-500 to-violet-600 p-[3px] shadow-sm">
+                <div className="relative rounded-full bg-gradient-to-tr from-emerald-600 via-teal-600 to-emerald-600 p-[3px] shadow-[0_0_10px_rgba(16,185,129,0.5)]">
                   <div className="overflow-hidden rounded-full bg-black p-0.5">
                     <Image
                       src="/perfil.jpg"
@@ -54,10 +67,18 @@ export function BentoAuthority({ visitCount }: Props) {
                 Anos de Experiência
               </p>
             </div>
+            </div>
           </div>
 
           {/* Card 2 — acadêmico */}
-          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7">
+          <div
+            className={`group/edu relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7`}
+          >
+            <div
+              className={`${cardEmeraldWash} group-hover/edu:opacity-20`}
+              aria-hidden
+            />
+            <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-between">
             <GraduationCap
               className="h-8 w-8 text-[#10b981]"
               strokeWidth={1.75}
@@ -71,10 +92,18 @@ export function BentoAuthority({ visitCount }: Props) {
                 Análise e Desenvolvimento de Sistemas — base acadêmica alinhada à prática.
               </p>
             </div>
+            </div>
           </div>
 
           {/* Card 3 — visitas */}
-          <div className="flex min-h-[160px] flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-2 md:row-start-2 md:col-start-3 md:min-h-0 md:p-7">
+          <div
+            className={`group/visits relative flex min-h-[160px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-start-2 md:col-start-3 md:min-h-0 md:p-7`}
+          >
+            <div
+              className={`${cardEmeraldWash} group-hover/visits:opacity-20`}
+              aria-hidden
+            />
+            <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-between">
             <Activity
               className="h-8 w-8 text-[#10b981]"
               strokeWidth={1.75}
@@ -88,12 +117,15 @@ export function BentoAuthority({ visitCount }: Props) {
                 {visitCount.toLocaleString('pt-BR')}
               </p>
             </div>
+            </div>
           </div>
 
           {/* Card 4 — stack */}
-          <div className="group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8">
+          <div
+            className={`group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8`}
+          >
             <div
-              className="pointer-events-none absolute inset-0 rounded-2xl bg-[#10b981] opacity-0 blur-3xl transition-opacity duration-300 group-hover/stack:opacity-20"
+              className={`${cardEmeraldWash} group-hover/stack:opacity-20`}
               aria-hidden
             />
             <div className="relative z-10 md:max-w-md">
