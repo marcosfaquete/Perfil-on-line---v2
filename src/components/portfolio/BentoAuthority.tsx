@@ -185,7 +185,7 @@ export function BentoAuthority({ visitCount }: Props) {
               <p className="mt-2 text-sm leading-relaxed text-white/50">
                 Aberto a projetos, freelas e parcerias em produto digital. Se
                 quiser falar de código, carreira ou uma ideia em mente — chama
-                no GitHub, LinkedIn ou por e-mail.
+                no LinkedIn, GitHub ou por e-mail.
               </p>
             </div>
             <div className="relative z-10 w-full md:w-auto">
