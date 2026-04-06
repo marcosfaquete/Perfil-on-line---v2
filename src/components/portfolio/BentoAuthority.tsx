@@ -1,11 +1,7 @@
 import Image from 'next/image'
-import { Activity, Code, GraduationCap, Rocket, Timer } from 'lucide-react'
+import { Code, GraduationCap, Rocket, Timer } from 'lucide-react'
 import { SocialLinksMini } from '@/components/portfolio/SocialLinksMini'
 import { TechStackMini } from '@/components/portfolio/TechStackMini'
-
-type Props = {
-  visitCount: number
-}
 
 const cardHoverGlow =
   'transition-all duration-300 hover:scale-[1.02] hover:border-emerald-500 hover:shadow-[0_0_20px_10px_rgba(16,185,129,0.15)]'
@@ -13,7 +9,7 @@ const cardHoverGlow =
 const cardEmeraldWash =
   'pointer-events-none absolute inset-0 rounded-2xl bg-[#10b981] opacity-0 blur-3xl transition-opacity duration-300'
 
-export function BentoAuthority({ visitCount }: Props) {
+export function BentoAuthority() {
   return (
     <section
       id="autoridade"
@@ -59,12 +55,13 @@ export function BentoAuthority({ visitCount }: Props) {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <p className="font-sans text-6xl font-black tabular-nums tracking-tight text-[#10b981] md:text-7xl lg:text-8xl">
-                    17
+                <div className="max-w-lg">
+                  <p className="font-sans text-4xl font-black tracking-tight text-[#10b981] md:text-5xl">
+                    Marcos Faquete - 17 Anos de Experiência
                   </p>
-                  <p className="mt-2 font-sans text-lg font-bold text-white md:text-xl">
-                    Anos de Experiência
+                  <p className="mt-2 text-sm text-zinc-400">
+                    De Araras para o mundo: Base sólida em hardware unida à
+                    engenharia de software moderna.
                   </p>
                 </div>
               </div>
@@ -79,8 +76,8 @@ export function BentoAuthority({ visitCount }: Props) {
               className={`${cardEmeraldWash} group-hover/right:opacity-20`}
               aria-hidden
             />
-            <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-between gap-8">
-              <div className="flex min-h-0 flex-1 flex-col justify-start">
+            <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center text-center">
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center">
                 <div className="flex flex-col items-center text-center">
                   <GraduationCap
                     className="mx-auto h-8 w-8 shrink-0 text-[#10b981]"
@@ -94,10 +91,10 @@ export function BentoAuthority({ visitCount }: Props) {
                     Técnico em Informática (Senac)
                   </p>
                   <p className="mt-1 text-sm text-zinc-400">
-                    Base sólida em infraestrutura unida à evolução contínua em
-                    software.
+                    Base sólida em hardware e infraestrutura unida à evolução
+                    contínua em engenharia de software.
                   </p>
-                  <div className="mt-4 flex flex-wrap justify-center gap-3">
+                  <div className="mt-6 flex flex-wrap justify-center gap-3">
                     <a
                       href="https://cursos.alura.com.br/user/MarcosFaquete"
                       target="_blank"
@@ -129,21 +126,6 @@ export function BentoAuthority({ visitCount }: Props) {
                       </span>
                     </a>
                   </div>
-                </div>
-              </div>
-              <div className="flex min-h-0 flex-1 flex-col justify-between">
-                <Activity
-                  className="h-8 w-8 text-[#10b981]"
-                  strokeWidth={1.75}
-                  aria-hidden
-                />
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wider text-white/45">
-                    Visitas em tempo real
-                  </p>
-                  <p className="mt-2 font-mono text-4xl font-black tabular-nums text-[#10b981] md:text-5xl">
-                    {visitCount.toLocaleString('pt-BR')}
-                  </p>
                 </div>
               </div>
             </div>
