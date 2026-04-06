@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
 import { Code, GraduationCap, Rocket, Timer } from 'lucide-react'
 import { SocialLinksMini } from '@/components/portfolio/SocialLinksMini'
 import { TechStackMini } from '@/components/portfolio/TechStackMini'
@@ -10,6 +13,50 @@ const cardEmeraldWash =
   'pointer-events-none absolute inset-0 rounded-2xl bg-[#10b981] opacity-0 blur-3xl transition-opacity duration-300'
 
 export function BentoAuthority() {
+  const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+  const ratiosRef = useRef(new Map<number, number>())
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (window.matchMedia('(min-width: 1024px)').matches) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const index = Number((entry.target as HTMLDivElement).dataset.cardIndex)
+          if (Number.isNaN(index)) continue
+          ratiosRef.current.set(index, entry.isIntersecting ? entry.intersectionRatio : 0)
+        }
+
+        let nextActive: number | null = null
+        let highestRatio = 0
+
+        for (const [index, ratio] of ratiosRef.current.entries()) {
+          if (ratio > highestRatio) {
+            highestRatio = ratio
+            nextActive = index
+          }
+        }
+
+        setActiveCardIndex(highestRatio > 0 ? nextActive : null)
+      },
+      {
+        rootMargin: '-30% 0px -30% 0px',
+        threshold: [0.2, 0.35, 0.5, 0.7],
+      }
+    )
+
+    for (const card of cardRefs.current) {
+      if (card) observer.observe(card)
+    }
+
+    return () => {
+      observer.disconnect()
+      ratiosRef.current.clear()
+    }
+  }, [])
+
   return (
     <section
       id="autoridade"
@@ -23,7 +70,13 @@ export function BentoAuthority() {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-4 md:gap-5">
           {/* Card 1 — destaque experiência + foto */}
           <div
-            className={`group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8`}
+            ref={(el) => {
+              cardRefs.current[0] = el
+            }}
+            data-card-index={0}
+            className={`group relative flex min-h-[200px] flex-col justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-1 md:min-h-0 md:p-8 ${
+              activeCardIndex === 0 ? 'active-mobile-glow' : ''
+            }`}
           >
             <div
               className={`${cardEmeraldWash} group-hover:opacity-20`}
@@ -70,7 +123,13 @@ export function BentoAuthority() {
 
           {/* Card 2 — acadêmico + visitas (altura alinhada ao card da esquerda) */}
           <div
-            className={`group/right relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7`}
+            ref={(el) => {
+              cardRefs.current[1] = el
+            }}
+            data-card-index={1}
+            className={`group/right relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-2 md:row-span-2 md:row-start-1 md:col-start-3 md:min-h-0 md:p-7 ${
+              activeCardIndex === 1 ? 'active-mobile-glow' : ''
+            }`}
           >
             <div
               className={`${cardEmeraldWash} group-hover/right:opacity-20`}
@@ -133,7 +192,13 @@ export function BentoAuthority() {
 
           {/* Card 4 — stack */}
           <div
-            className={`group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8`}
+            ref={(el) => {
+              cardRefs.current[2] = el
+            }}
+            data-card-index={2}
+            className={`group/stack relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-4 md:row-start-3 md:flex-row md:items-center md:justify-between md:px-10 md:py-8 ${
+              activeCardIndex === 2 ? 'active-mobile-glow' : ''
+            }`}
           >
             <div
               className={`${cardEmeraldWash} group-hover/stack:opacity-20`}
@@ -154,7 +219,13 @@ export function BentoAuthority() {
 
           {/* Card 5 — redes e contato */}
           <div
-            className={`group/social relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-4 md:row-start-4 md:flex-row md:items-center md:justify-between md:px-10 md:py-8`}
+            ref={(el) => {
+              cardRefs.current[3] = el
+            }}
+            data-card-index={3}
+            className={`group/social relative flex min-h-[180px] flex-col justify-center gap-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md ${cardHoverGlow} md:col-span-4 md:row-start-4 md:flex-row md:items-center md:justify-between md:px-10 md:py-8 ${
+              activeCardIndex === 3 ? 'active-mobile-glow' : ''
+            }`}
           >
             <div
               className={`${cardEmeraldWash} group-hover/social:opacity-20`}
