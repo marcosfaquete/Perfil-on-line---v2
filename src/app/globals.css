@@ -84,9 +84,17 @@ html {
 }
 
 @media (max-width: 1023px) {
+  #autoridade [data-card-index] {
+    transition-property: border-color, box-shadow, background-color;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .active-mobile-glow {
-    border-color: rgba(16, 185, 129, 0.75);
-    box-shadow: 0 0 20px 10px rgba(16, 185, 129, 0.15);
-    transition-duration: 500ms;
+    border-color: rgb(16 185 129);
+    background-color: rgb(2 44 34 / 0.2);
+    box-shadow:
+      0 0 40px -5px rgba(16, 185, 129, 0.3),
+      inset 0 0 20px 1px rgba(16, 185, 129, 0.1);
   }
 }
