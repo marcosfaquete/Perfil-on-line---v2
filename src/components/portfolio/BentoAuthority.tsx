@@ -60,7 +60,7 @@ export function BentoAuthority() {
   return (
     <section
       id="autoridade"
-      className="flex min-h-[100dvh] snap-start snap-always flex-col justify-center px-5 py-20 md:px-10 md:py-24"
+      className="flex min-h-[100dvh] flex-col justify-center px-5 py-20 md:px-10 md:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <h2 className="mb-10 text-center font-sans text-2xl font-black tracking-tight text-white md:mb-12 md:text-left md:text-3xl">

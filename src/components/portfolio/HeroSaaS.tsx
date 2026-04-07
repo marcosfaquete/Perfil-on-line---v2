@@ -9,7 +9,7 @@ export function HeroSaaS() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] snap-start snap-always flex-col items-center justify-center px-5 pb-16 pt-28 md:px-10 md:pb-24 md:pt-32"
+      className="relative flex min-h-[100dvh] flex-col items-center justify-center px-5 pb-16 pt-28 md:px-10 md:pb-24 md:pt-32"
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center md:items-start md:text-left">
         <h1 className="max-w-5xl font-sans text-[clamp(1.75rem,6vw,4.25rem)] font-black leading-[1.05] tracking-tight text-white">

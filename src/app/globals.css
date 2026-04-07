@@ -73,16 +73,6 @@ body {
   color: #ffffff;
 }
 
-/* Scroll snap vertical (reforçado no layout via classes Tailwind) */
-html {
-  scroll-snap-type: y mandatory;
-}
-
-.home-snap > section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
 @media (max-width: 1023px) {
   #autoridade [data-card-index] {
     transition-property: border-color, box-shadow, background-color;

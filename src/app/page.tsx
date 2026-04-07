@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-black text-white">
       <Header />
 
-      <main className="home-snap flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col">
         <HeroSaaS />
         <BentoAuthority />
         <ProjectsFeed />

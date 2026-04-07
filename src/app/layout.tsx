@@ -18,10 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${GeistSans.variable} h-full snap-y snap-mandatory overflow-y-scroll scroll-smooth`}
-    >
+    <html lang="pt-BR" className={GeistSans.variable}>
       <body
         className={`${GeistSans.className} min-h-full bg-black text-white antialiased`}
       >
