@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { VisitorTracker } from "@/VisitorTracker";
 import VisitorCounterDisplay from "@/components/VisitorCounterDisplay";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${GeistSans.className} min-h-full bg-black text-white antialiased`}
       >
+        <SmoothScrolling />
         <VisitorTracker />
         <VisitorCounterDisplay />
         {children}
